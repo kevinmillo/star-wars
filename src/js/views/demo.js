@@ -4,36 +4,26 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
+import { Cardpeople } from "../component/cardpeople";
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
+	//ACA PUEDO ESCRIBIR CODIGO DE JS
+	// let num = 0;
+	// console.log("mi numero es ", num)
 
 	return (
-		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
+	//SIEMPRE VA A SER HTML (Boostrap) + Algo de JS
+		<div className="container ">
+			<div class="row flex-row flex-nowrap overflow-auto row-cols-1 row-cols-md-3 g-4">
+				{store.people.map((item, index) => {
 					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
-					);
-				})}
-			</ul>
+						<Cardpeople name={item.name} hair_color={item.hair_color}/>
+						);
+					})}
+
+					</div>
+					
 			<br />
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
