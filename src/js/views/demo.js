@@ -15,10 +15,11 @@ export const Demo = () => {
 	return (
 	//SIEMPRE VA A SER HTML (Boostrap) + Algo de JS
 		<div className="container ">
-			<div class="row flex-row flex-nowrap overflow-auto row-cols-1 row-cols-md-3 g-4">
+			<div className="row flex-row flex-nowrap overflow-auto row-cols-1 row-cols-md-3 g-4">
 				{store.people.map((item, index) => {
+					console.log(item)
 					return (
-						<Cardpeople name={item.name} hair_color={item.hair_color}/>
+						<Cardpeople name={item.name} hair_color={item.hair_color} gender={item.gender} eye_color={item.eye_color}/>
 						);
 					})}
 

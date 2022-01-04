@@ -52,6 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 									.then(result => {
 										personaje.hair_color = result.result.properties.hair_color;
 										personaje.eye_color = result.result.properties.eye_color;
+										personaje.gender = result.result.properties.gender;
 										console.log("Armando el personaje",personaje)
 										listaPersonajes.push(personaje)
 										// setStore({ people: [...people,personaje] })
